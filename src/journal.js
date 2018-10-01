@@ -26,13 +26,25 @@ export function journalConsonantCount(entry) {
   }
 }
 
+export function lastItemCleaner(array) {
+  debugger;
+  var lastEntry = array[array.length - 1];
+  if (lastEntry.match(/[,.?!]$/) != null) {
+    var cleanedEntry = lastEntry.replace(/[,.?!]$/, "");
+    array.splice(lastEntry, 1, cleanedEntry);
+    return array;
+  }
+}
+
 export function journalTeaserMaker(array) {
   var ellipsis = "...";
-  if (array.length <= 8) {
-    var teaserOne = array.join(" ");
-    return teaserOne.concat(ellipsis);
+  var newArray = lastItemCleaner(array);
+  if (newArray.length <= 8) {
+    var teaserLess = newArray.join(" ");
+    return teaserLess.concat(ellipsis);
   } else {
-    var firstEight = array.slice(0, 8);
-    return firstEight.concat(ellipsis);
+    var firstEight = newArray.slice(0, 8);
+    var teaserMore = firstEight.join(" ");
+    return teaserMore.concat(ellipsis);
   }
 }

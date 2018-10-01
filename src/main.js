@@ -5,11 +5,11 @@ import {journalWordCount}  from './journal.js';
 import {journalVowelCount}  from './journal.js';
 import {journalConsonantCount}  from './journal.js';
 import {journalTeaserMaker}  from './journal.js';
+// import {lastItemCleaner} from './journal.js';
 import $ from 'jquery';
 //interface logic
 $(document).ready(function(){
   $('#theForm').submit(function(event){
-    debugger;
     event.preventDefault();
     var entry = $('#body').val();
     var words = journalWordSplit(entry);
@@ -18,6 +18,8 @@ $(document).ready(function(){
     var vowelCount = journalVowelCount(entry);
     var consonantCount = journalConsonantCount(entry);
     var teaser = journalTeaserMaker(words);
+
+    $('#result').empty();
 
     $('#result').append("<li>Word Count: " + wordCount + "</li>");
     $('#result').append("<li>Vowel Count: " + vowelCount + "</li>");
