@@ -11,7 +11,7 @@ export function journalWordCount(array) {
 export function journalVowelCount(entry) {
   var matches = entry.match(/[aeiouy]/gi);
   if (matches === null) {
-    return "No vowels here!"
+    return "No vowels here!";
   } else {
     return (matches.length);
   }
@@ -20,14 +20,14 @@ export function journalVowelCount(entry) {
 export function journalConsonantCount(entry) {
   var matches = entry.match(/[bcdfghjklmnpqrstvwxz]/gi);
   if (matches === null) {
-    return "No consonants here, fren!"
+    return "No consonants here, fren!";
   } else {
     return (matches.length);
   }
 }
 
 export function journalTeaserMaker(array) {
-  var ellipsis = "..."
+  var ellipsis = "...";
   if (array.length <= 8) {
     var teaserOne = array.join(" ");
     return teaserOne.concat(ellipsis);

@@ -14,6 +14,10 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
+    new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
     new UglifyJsPlugin({
       sourceMap: true
     }),
